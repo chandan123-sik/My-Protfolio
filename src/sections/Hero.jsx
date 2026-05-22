@@ -72,7 +72,7 @@ export const Hero = () => {
       </div>
 
       {/* Content */}
-      <div className="container mx-auto px-6 pt-32 pb-20 relative z-10">
+      <div className="container mx-auto px-4 sm:px-6 pt-24 sm:pt-32 pb-16 sm:pb-20 relative z-10">
         <div className="grid lg:grid-cols-2 gap-12 items-center">
           {/* Left Column - Text Content */}
           <div className="space-y-8 text-center lg:text-left">
@@ -140,7 +140,7 @@ export const Hero = () => {
           </div>
           {/* Right Column - 3D Holographic Sphere */}
           <div className="animate-fade-in animation-delay-300 flex items-center justify-center">
-            <div className="relative w-full max-w-xs sm:max-w-sm lg:max-w-md" style={{ height: "280px" }}>
+            <div className="relative w-full max-w-xs sm:max-w-sm lg:max-w-md" style={{ height: "240px" }}>
               {/* Glow backdrop */}
               <div className="absolute inset-0 rounded-full bg-primary/10 blur-3xl animate-pulse pointer-events-none" />
               <Suspense fallback={<div className="w-full h-full" />}>

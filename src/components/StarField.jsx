@@ -217,7 +217,7 @@ export function StarField() {
         height: "100vh",
         pointerEvents: "none",
         zIndex: 0,
-        opacity: 1,
+        opacity: 0.45,
       }}
     />
   );

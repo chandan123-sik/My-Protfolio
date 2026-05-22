@@ -102,7 +102,7 @@ export const Experience = () => {
                       : "md:col-start-2 md:pl-16"
                   }`}
                 >
-                  <div className="glass p-6 rounded-2xl border border-primary/30 hover:border-primary/50 transition-all duration-500">
+                  <div className="glass p-6 rounded-2xl border border-primary/30 hover:border-primary/50 transition-all duration-500 relative z-10 bg-card/80 backdrop-blur-sm">
                     <span className="text-sm text-primary font-medium">
                       {exp.period}
                     </span>

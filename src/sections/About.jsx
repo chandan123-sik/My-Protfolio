@@ -32,7 +32,7 @@ export const About = () => {
       <div className="container mx-auto px-6 relative z-10">
         <div className="grid lg:grid-cols-2 gap-16 items-center">
           {/* Left Column */}
-          <div className="space-y-8 text-center lg:text-left">
+          <div className="space-y-8 text-center lg:text-left relative z-10 rounded-2xl p-4 md:p-0" style={{background: "color-mix(in srgb, var(--color-background) 70%, transparent)"}}>
             <div className="animate-fade-in">
               <span className="text-secondary-foreground text-sm font-medium tracking-wider uppercase">
                 About Me
@@ -47,22 +47,22 @@ export const About = () => {
               </span>
             </h2>
 
-            <div className="space-y-4 text-muted-foreground animate-fade-in animation-delay-200">
-              <p>
+            <div className="space-y-4 text-muted-foreground animate-fade-in animation-delay-200 relative z-10">
+              <p className="relative">
                 I'm a passionate MERN Stack Developer focused on building
                 modern, responsive, and user-friendly web applications. My
                 journey into web development started with curiosity about how
                 websites work, and over time, it turned into a strong passion
                 for creating real-world digital solutions.
               </p>
-              <p>
+              <p className="relative">
                 I specialize in React.js, Node.js, Express.js, and MongoDB,
                 developing everything from interactive frontend interfaces to
                 full-stack web applications. I enjoy writing clean code,
                 improving user experience, and building scalable applications
                 that solve practical problems.
               </p>
-              <p>
+              <p className="relative">
                 When I'm not coding, you'll find me practicing DSA, learning
                 new technologies, exploring system design concepts, or improving
                 my development skills through projects and continuous learning.
@@ -79,7 +79,7 @@ export const About = () => {
           </div>
 
           {/* Right Column - Hilights */}
-          <div className="grid sm:grid-cols-2 gap-6">
+          <div className="grid sm:grid-cols-2 gap-6 relative z-10">
             {highlights.map((item, idx) => (
               <div
                 key={idx}

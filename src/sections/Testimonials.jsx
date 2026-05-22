@@ -1,10 +1,10 @@
 import { ChevronLeft, ChevronRight, Quote } from "lucide-react";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 const testimonials = [
   {
     quote:
-      "Pedro is one of the most talented engineers I've worked with. His attention to detail and ability to translate complex requirements into elegant solutions is remarkable.",
+      "Chandan is a dedicated developer with strong problem-solving skills and a passion for building modern web applications. His ability to quickly learn new technologies and implement clean solutions is impressive.",
     author: "Sarah Chen",
     role: "CTO, Tech Innovators Inc.",
     avatar:
@@ -12,7 +12,7 @@ const testimonials = [
   },
   {
     quote:
-      "Working with Pedro was a game-changer for our project. He delivered ahead of schedule with code quality that set a new standard for our team.",
+      "Working with Chandan on web development projects was a great experience. He consistently focused on creating responsive, user-friendly interfaces with attention to detail.",
     author: "Michael Rodriguez",
     role: "Product Manager, Digital Solutions",
     avatar:
@@ -20,7 +20,7 @@ const testimonials = [
   },
   {
     quote:
-      "Pedro's expertise in React and TypeScript helped us rebuild our entire frontend in record time. His architectural decisions continue to pay dividends.",
+      "Chandan's knowledge of React, Node.js, and MongoDB helped deliver scalable and efficient applications. His commitment to continuous learning makes him stand out as a developer.",
     author: "Emily Watson",
     role: "Engineering Lead, StartUp Labs",
     avatar:
@@ -28,7 +28,7 @@ const testimonials = [
   },
   {
     quote:
-      "Not only is Pedro technically brilliant, but he's also a fantastic communicator and team player. He elevated everyone around him.",
+      "Beyond technical skills, Chandan is a collaborative and motivated team player who is always eager to improve, contribute ideas, and take on new challenges.",
     author: "David Kim",
     role: "CEO, Innovation Hub",
     avatar:
@@ -48,6 +48,13 @@ export const Testimonials = () => {
       (prev) => (prev - 1 + testimonials.length) % testimonials.length
     );
   };
+
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setActiveIdx((prev) => (prev + 1) % testimonials.length);
+    }, 3000);
+    return () => clearInterval(timer);
+  }, []);
   return (
     <section id="testimonials" className="py-32 relative overflow-hidden">
       <div
@@ -95,7 +102,7 @@ export const Testimonials = () => {
                 <Quote className="w-6 h-6 text-primary-foreground" />
               </div>
 
-              <blockquote className="text-xl md:text-2xl font-medium leading-relaxed mb-8 pt-4">
+              <blockquote className="text-lg md:text-xl lg:text-2xl font-medium leading-relaxed mb-8 pt-4">
                 "{testimonials[activeIdx].quote}"
               </blockquote>
 

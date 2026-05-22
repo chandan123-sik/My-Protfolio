@@ -32,7 +32,7 @@ export const About = () => {
       <div className="container mx-auto px-6 relative z-10">
         <div className="grid lg:grid-cols-2 gap-16 items-center">
           {/* Left Column */}
-          <div className="space-y-8">
+          <div className="space-y-8 text-center lg:text-left">
             <div className="animate-fade-in">
               <span className="text-secondary-foreground text-sm font-medium tracking-wider uppercase">
                 About Me
@@ -49,22 +49,23 @@ export const About = () => {
 
             <div className="space-y-4 text-muted-foreground animate-fade-in animation-delay-200">
               <p>
-                I'm a passionate software engineer with over 5 years of
-                experience crafting digital products that make a difference. My
-                journey started with a curiosity for how things work on the web,
-                and it has evolved into a deep expertise in modern frontend
-                technologies.
+                I'm a passionate MERN Stack Developer focused on building
+                modern, responsive, and user-friendly web applications. My
+                journey into web development started with curiosity about how
+                websites work, and over time, it turned into a strong passion
+                for creating real-world digital solutions.
               </p>
               <p>
-                I specialize in React, Next.js, and TypeScript, building
-                everything from sleek landing pages to complex enterprise
-                applications. My approach combines technical excellence with a
-                keen eye for design and user experience.
+                I specialize in React.js, Node.js, Express.js, and MongoDB,
+                developing everything from interactive frontend interfaces to
+                full-stack web applications. I enjoy writing clean code,
+                improving user experience, and building scalable applications
+                that solve practical problems.
               </p>
               <p>
-                When I'm not coding, you'll find me exploring new technologies,
-                contributing to open-source projects, or sharing knowledge with
-                the developer community.
+                When I'm not coding, you'll find me practicing DSA, learning
+                new technologies, exploring system design concepts, or improving
+                my development skills through projects and continuous learning.
               </p>
             </div>
 

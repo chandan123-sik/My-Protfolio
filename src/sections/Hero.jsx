@@ -7,27 +7,37 @@ import {
   Download,
 } from "lucide-react";
 import { AnimatedBorderButton } from "../components/AnimatedBorderButton";
-import { HolographicSphere } from "../components/HolographicSphere";
+import { lazy, Suspense } from "react";
+
+const HolographicSphere = lazy(() =>
+  import("../components/HolographicSphere").then(m => ({ default: m.HolographicSphere }))
+);
 
 const skills = [
+  "HTML",
+  "CSS",
+  "JavaScript",
   "React",
-  "Next.js",
-  "TypeScript",
   "Node.js",
-  "GraphQL",
-  "PostgreSQL",
+  "Express",
   "MongoDB",
+  "Mongoose",
   "Redis",
-  "Docker",
-  "AWS",
   "Vercel",
+  "Render",
+  "Netlify",
   "Tailwind CSS",
-  "Prisma",
-  "Jest",
-  "Cypress",
-  "Figma",
   "Git",
   "GitHub Actions",
+  "C++",
+  "Axios",
+  "REST API",
+  "JWT",
+  "Socket.IO",
+  "OOPS",
+  "Data Structure and Algorithm",
+  "Cloudinary",
+  "POSTMAN",
 ];
 
 export const Hero = () => {
@@ -65,34 +75,37 @@ export const Hero = () => {
       <div className="container mx-auto px-6 pt-32 pb-20 relative z-10">
         <div className="grid lg:grid-cols-2 gap-12 items-center">
           {/* Left Column - Text Content */}
-          <div className="space-y-8">
+          <div className="space-y-8 text-center lg:text-left">
             <div className="animate-fade-in">
               <span className="inline-flex items-center gap-2 px-4 py-2 rounded-full glass text-sm text-primary">
                 <span className="w-2 h-2 bg-primary rounded-full animate-pulse" />
-                Software Engineer • React Specialist
+                Software Developer Engineer
               </span>
             </div>
 
             {/* Headline */}
             <div className="space-y-4">
-              <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold leading-tight animate-fade-in animation-delay-100">
-                Crafting <span className="text-primary glow-text">digital</span>
+              <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold leading-tight animate-fade-in animation-delay-100">
+                Bringing{" "}
+                <span className="text-primary glow-text animate-highlight-pulse">
+                  ideas
+                </span>{" "}
+                to life
                 <br />
-                experiences with
-                <br />
+                through{" "}
                 <span className="font-serif italic font-normal text-white">
-                  precision.
+                  code.
                 </span>
               </h1>
-              <p className="text-lg text-muted-foreground max-w-lg animate-fade-in animation-delay-200">
-                Hi, I'm Pedro Machado — a software engineer specializing in
-                React, Next.js, and TypeScript. I build scalable, performant web
-                applications that users love.
+              <p className="text-base md:text-lg text-muted-foreground max-w-lg mx-auto lg:mx-0 animate-fade-in animation-delay-200">
+                Hi, I'm Chandan Sikarwar — a Full Stack Developer focused on
+                creating scalable and responsive web experiences with the MERN
+                stack.
               </p>
             </div>
 
             {/* CTAs */}
-            <div className="flex flex-wrap gap-4 animate-fade-in animation-delay-300">
+            <div className="flex flex-wrap justify-center lg:justify-start gap-4 animate-fade-in animation-delay-300">
               <a href="#contact">
                 <Button size="lg">
                   Contact Me <ArrowRight className="w-5 h-5" />
@@ -107,7 +120,7 @@ export const Hero = () => {
             </div>
 
             {/* Social Links */}
-            <div className="flex items-center gap-4 animate-fade-in animation-delay-400">
+            <div className="flex items-center justify-center lg:justify-start gap-4 animate-fade-in animation-delay-400">
               <span className="text-sm text-muted-foreground">Follow me: </span>
               {[
                 { icon: Github, href: "https://github.com/chandan123-sik" },
@@ -127,10 +140,12 @@ export const Hero = () => {
           </div>
           {/* Right Column - 3D Holographic Sphere */}
           <div className="animate-fade-in animation-delay-300 flex items-center justify-center">
-            <div className="relative w-full max-w-sm lg:max-w-md" style={{ height: "320px" }}>
+            <div className="relative w-full max-w-xs sm:max-w-sm lg:max-w-md" style={{ height: "280px" }}>
               {/* Glow backdrop */}
               <div className="absolute inset-0 rounded-full bg-primary/10 blur-3xl animate-pulse pointer-events-none" />
-              <HolographicSphere />
+              <Suspense fallback={<div className="w-full h-full" />}>
+                <HolographicSphere />
+              </Suspense>
             </div>
           </div>
         </div>

@@ -7,7 +7,7 @@ import {
   Download,
 } from "lucide-react";
 import { AnimatedBorderButton } from "../components/AnimatedBorderButton";
-import { lazy, Suspense } from "react";
+import { lazy, Suspense, useMemo } from "react";
 
 const HolographicSphere = lazy(() =>
   import("../components/HolographicSphere").then(m => ({ default: m.HolographicSphere }))
@@ -41,6 +41,15 @@ const skills = [
 ];
 
 export const Hero = () => {
+  const dots = useMemo(() =>
+    Array.from({ length: 20 }, (_, i) => ({
+      id: i,
+      left: `${Math.random() * 100}%`,
+      top: `${Math.random() * 100}%`,
+      duration: `${15 + Math.random() * 20}s`,
+      delay: `${Math.random() * 5}s`,
+    })), []
+  );
   return (
     <section className="relative min-h-screen flex items-center overflow-hidden">
       {/* Bg */}
@@ -55,17 +64,16 @@ export const Hero = () => {
 
       {/* Green Dots */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        {[...Array(30)].map((_, i) => (
+        {dots.map((dot) => (
           <div
+            key={dot.id}
             className="absolute w-1.5 h-1.5 rounded-full opacity-60"
             style={{
               backgroundColor: "#20B2A6",
-              left: `${Math.random() * 100}%`,
-              top: `${Math.random() * 100}%`,
-              animation: `slow-drift ${
-                15 + Math.random() * 20
-              }s ease-in-out infinite`,
-              animationDelay: `${Math.random() * 5}s`,
+              left: dot.left,
+              top: dot.top,
+              animation: `slow-drift ${dot.duration} ease-in-out infinite`,
+              animationDelay: dot.delay,
             }}
           />
         ))}

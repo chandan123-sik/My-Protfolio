@@ -1,6 +1,6 @@
 import { Button } from "@/components/Button";
 import { Menu, X } from "lucide-react";
-import { useEffect, useState } from "react";
+import { useEffect, useState, useCallback } from "react";
 
 const navLinks = [
   { href: "#about", label: "About" },
@@ -13,27 +13,23 @@ export const Navbar = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
 
-  useEffect(() => {
-    const handleScroll = () => {
-      setIsScrolled(window.scrollY > 50);
-    };
-
-    window.addEventListener("scroll", handleScroll);
-
-    return () => window.removeEventListener("scroll", handleScroll);
+  const handleScroll = useCallback(() => {
+    setIsScrolled(window.scrollY > 50);
   }, []);
+
+  useEffect(() => {
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, [handleScroll]);
 
   return (
     <header
-      className={`fixed top-0 left-0 right-0 transition-all duration-500 ${
+      className={`fixed top-0 left-0 right-0 transition-all duration-300 ${
         isScrolled ? "glass-strong py-3" : "bg-transparent py-5"
-      }  z-50`}
+      } z-50`}
     >
       <nav className="container mx-auto px-6 flex items-center justify-between">
-        <a
-          href="#"
-          className="text-xl font-bold tracking-tight hover:text-primary"
-        >
+        <a href="#" className="text-xl font-bold tracking-tight hover:text-primary">
           CS<span className="text-primary">.</span>
         </a>
 
@@ -44,7 +40,7 @@ export const Navbar = () => {
               <a
                 href={link.href}
                 key={index}
-                className="px-4 py-2 text-sm text-muted-foreground hover:text-foreground rounded-full hover:bg-surface"
+                className="px-4 py-2 text-sm text-muted-foreground hover:text-foreground rounded-full hover:bg-surface transition-colors duration-150"
               >
                 {link.label}
               </a>
@@ -68,24 +64,28 @@ export const Navbar = () => {
         </button>
       </nav>
 
-      {/* Mobile Menu */}
+      {/* Mobile Menu - fast slide down */}
       {isMobileMenuOpen && (
-        <div className="md:hidden glass-strong animate-fade-in">
-          <div className="container mx-auto px-6 py-6 flex flex-col gap-4">
+        <div
+          className="md:hidden glass-strong"
+          style={{ animation: "mobile-menu-in 0.18s ease-out both" }}
+        >
+          <div className="container mx-auto px-6 py-4 flex flex-col gap-3">
             {navLinks.map((link, index) => (
               <a
                 href={link.href}
                 key={index}
                 onClick={() => setIsMobileMenuOpen(false)}
-                className="text-lg text-muted-foreground hover:text-foreground py-2"
+                className="text-base text-muted-foreground hover:text-foreground py-2 border-b border-border/30 last:border-0 transition-colors duration-150"
               >
                 {link.label}
               </a>
             ))}
-
-            <a href="#contact" onClick={() => setIsMobileMenuOpen(false)}>
-              <Button>Contact Me</Button>
-            </a>
+            <div className="pt-1">
+              <a href="#contact" onClick={() => setIsMobileMenuOpen(false)}>
+                <Button className="w-full">Contact Me</Button>
+              </a>
+            </div>
           </div>
         </div>
       )}

@@ -26,8 +26,9 @@ export function StarField() {
     const W = () => canvas.width;
     const H = () => canvas.height;
 
-    // Background stars
-    const stars = Array.from({ length: 300 }, makeStar);
+    // Background stars - fewer on mobile
+    const isMobile = window.innerWidth < 768;
+    const stars = Array.from({ length: isMobile ? 150 : 300 }, makeStar);
 
     function makeStar() {
       const isTeal = Math.random() < 0.18;

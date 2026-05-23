@@ -255,3 +255,18 @@
 .project-fly-in {
   animation: project-fly-in 0.55s cubic-bezier(0.22, 1, 0.36, 1) both;
 }
+
+/* Loading screen animations */
+@keyframes loader-spin {
+  to { transform: rotate(360deg); }
+}
+
+@keyframes loader-fade-up {
+  from { opacity: 0; transform: translateY(10px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes loader-progress {
+  from { width: 0%; }
+  to   { width: 100%; }
+}

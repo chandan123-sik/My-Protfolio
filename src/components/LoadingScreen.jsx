@@ -5,9 +5,9 @@ export function LoadingScreen({ onDone }) {
 
   useEffect(() => {
     // Start fade out after 5s
-    const fadeTimer = setTimeout(() => setFadeOut(true), 5000);
+    const fadeTimer = setTimeout(() => setFadeOut(true), 4000);
     // Remove from DOM after fade completes
-    const doneTimer = setTimeout(() => onDone(), 5500);
+    const doneTimer = setTimeout(() => onDone(), 5000);
     return () => {
       clearTimeout(fadeTimer);
       clearTimeout(doneTimer);

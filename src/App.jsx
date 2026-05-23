@@ -8,6 +8,7 @@ import { LoadingScreen } from "@/components/LoadingScreen";
 import { lazy, Suspense, useState, useCallback } from "react";
 
 const About = lazy(() => import("@/sections/About").then(m => ({ default: m.About })));
+const Skills = lazy(() => import("@/sections/Skills").then(m => ({ default: m.Skills })));
 const Projects = lazy(() => import("@/sections/Projects").then(m => ({ default: m.Projects })));
 const Experience = lazy(() => import("@/sections/Experience").then(m => ({ default: m.Experience })));
 const Testimonials = lazy(() => import("@/sections/Testimonials").then(m => ({ default: m.Testimonials })));
@@ -28,6 +29,7 @@ function App() {
         <Hero />
         <Suspense fallback={null}>
           <About />
+          <Skills />
           <Projects />
           <Experience />
           <Testimonials />

@@ -6,7 +6,7 @@ const projects = [
     title: "NowStay (Hotel Booking)",
     description:
       "NowStay is a full-stack hotel management and booking platform built using the MERN stack, designed to provide a seamless room booking experience with real-time inventory and dynamic pricing management.",
-    image: "/projects/Project1.png",
+    image: "/projects/project1.png",
     tags: ["React", "NodeJS", "ExpressJS", "MongoDB", "SMS India Hub", "Socket.IO", "Tailwind"],
     link: "https://now-stay-three.vercel.app/",
     github: "https://github.com/chandan123-sik/NowStay.git",
@@ -15,7 +15,7 @@ const projects = [
     title: "Real Time Chat Application",
     description:
       "A full-stack real-time chat application built using the MERN stack and Socket.IO, enabling instant one-to-one and group messaging with live online/offline user status updates.",
-    image: "/projects/Project2.png",
+    image: "/projects/project2.png",
     tags: ["React", "NodeJS", "ExpressJS", "Tailwind", "MongoDB", "Socket.IO"],
     link: "https://chat-app-frontent-zeta.vercel.app/login",
     github: "https://github.com/chandan123-sik/Real-Time-Chat-Application.git",
@@ -24,7 +24,7 @@ const projects = [
     title: "E-Commerce Platform",
     description:
       "A full-stack e-commerce web application built using the MERN stack, designed to provide a seamless online shopping experience with secure authentication and payment integration.",
-    image: "/projects/Project3.png",
+    image: "/projects/project3.png",
     tags: ["React", "NodeJS", "ExpressJS", "Tailwind", "Cloudinary"],
     link: "https://forever-frontent.vercel.app/",
     github: "https://github.com/chandan123-sik/Full-Stack-E-commerce-Project.git",
